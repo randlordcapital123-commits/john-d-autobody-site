@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BUY ZANA CHICKEN | Fresh Farm Chickens</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="logo-brand">
+        <img id="siteLogo" src="https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?auto=format&fit=crop&q=80&w=200" alt="BUY ZANA CHICKEN Logo" class="brand-logo">
+        <span class="brand-name">BUY ZANA CHICKEN</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#products">Our Chickens</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><button id="adminToggleBtn" class="btn-secondary">Admin Login</button></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <span class="badge">Farm Fresh Daily • Witbank</span>
+      <h1>Premium Farm Fresh Chickens Delivered to You</h1>
+      <p>Quality, fresh, and wholesome chickens straight from our farm in Witbank, Mpumalanga. Order directly via WhatsApp for fast local service!</p>
+      <div class="hero-actions">
+        <a href="#products" class="btn-primary">Browse & Order</a>
+        <a href="https://wa.me/27799493258" target="_blank" class="btn-whatsapp">Chat on WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <section id="products" class="products-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Available Fresh Produce</h2>
+        <p>Select your item and click to order directly via WhatsApp.</p>
+      </div>
+      <div class="product-grid" id="productGrid">
+        <!-- Products rendered dynamically by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- About & Contact Section -->
+  <section id="about" class="info-section">
+    <div class="container info-grid">
+      <div class="info-card">
+        <h3>About Buy Zana Chicken</h3>
+        <p>We supply healthy, fresh farm chickens across Witbank, Mpumalanga. Whether you need single orders or bulk supply for events, we guarantee farm-to-table quality.</p>
+      </div>
+      <div id="contact" class="info-card">
+        <h3>Contact & Location</h3>
+        <p>📍 <strong>Location:</strong> Witbank, Mpumalanga, 1039</p>
+        <p>📞 <strong>Phone / WhatsApp:</strong> <a href="https://wa.me/27799493258" target="_blank">079 949 3258</a></p>
+        <p>🚚 <strong>Delivery:</strong> Local delivery & pickup available</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Admin Modal Panel -->
+  <div id="adminModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Store Admin Manager</h2>
+        <span class="close-btn" id="closeAdminModal">&times;</span>
+      </div>
+
+      <!-- Admin Login View -->
+      <div id="adminLoginView" class="admin-view">
+        <p>Enter the store access PIN (Default: <code>1234</code>):</p>
+        <form id="loginForm">
+          <input type="password" id="pinInput" placeholder="Enter PIN" required>
+          <button type="submit" class="btn-primary">Access Dashboard</button>
+        </form>
+      </div>
+
+      <!-- Admin Dashboard View -->
+      <div id="adminDashboardView" class="admin-view hidden">
+        <div class="admin-tabs">
+          <button class="tab-btn active" data-tab="tabLogo">Brand Logo</button>
+          <button class="tab-btn" data-tab="tabPrices">Manage Prices</button>
+          <button class="tab-btn" data-tab="tabAdd">Add Product</button>
+        </div>
+
+        <!-- Tab 1: Upload Logo -->
+        <div id="tabLogo" class="tab-content active">
+          <h3>Upload Store Logo</h3>
+          <div class="drag-area" id="logoDragArea">
+            <p>Drag & drop logo here, or <span class="browse-link">browse image</span></p>
+            <input type="file" id="logoFileInput" accept="image/*" hidden>
+          </div>
+          <div id="logoPreviewContainer" class="preview-box"></div>
+        </div>
+
+        <!-- Tab 2: Manage Prices -->
+        <div id="tabPrices" class="tab-content">
+          <h3>Current Inventory & Pricing</h3>
+          <div id="adminProductList" class="admin-product-list"></div>
+        </div>
+
+        <!-- Tab 3: Add New Product -->
+        <div id="tabAdd" class="tab-content">
+          <h3>Add New Item</h3>
+          <form id="addProductForm">
+            <input type="text" id="newTitle" placeholder="Product Title (e.g. Whole Live Chicken)" required>
+            <input type="number" id="newPrice" placeholder="Price (ZAR / R)" step="0.01" required>
+            <textarea id="newDesc" placeholder="Description / Weight details" required></textarea>
+            
+            <div class="drag-area" id="productDragArea">
+              <p>Drag & drop product photo here, or <span class="browse-link">browse image</span></p>
+              <input type="file" id="productFileInput" accept="image/*" hidden>
+            </div>
+            <div id="productPreviewContainer" class="preview-box"></div>
+
+            <button type="submit" class="btn-primary">Save Product</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 BUY ZANA CHICKEN, Witbank, Mpumalanga. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
